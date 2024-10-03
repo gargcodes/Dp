@@ -20,6 +20,26 @@ int findlength(node* &head){
     }
     return p;
 }
+node* createLinkedList(node* &head) {
+    head = nullptr;
+    node* temp = nullptr;
+    int value;
+    for(int i=1;i<=5;i++){
+        cin >> value;
+        node* newnode = new node(value);
+        if (head == nullptr) {
+            head = newnode;
+        } 
+        else {
+            temp = head;
+            while (temp->next != nullptr) {
+                temp = temp->next;
+            }
+            temp->next = newnode;
+        }
+    }
+    return head;
+}
 node* reverseloop(node* &head,int k){
     if(head==nullptr){
         cout<<"LL is Empty "<<endl;
@@ -54,19 +74,8 @@ void print(node* &head){
     }
 }
 int main(){
-    node* first=new node(10);
-    node* second=new node(20);
-    node* third=new node(30);
-    node* fourth=new node(40);
-    node* fifth=new node(50);
-    node* sixth=new node(60);
-    node* head=first;
-    first->next=second;
-    second->next=third;
-    third->next=fourth;
-    fourth->next=fifth;
-    fifth->next=sixth;
-    sixth->next=nullptr; 
+    node *head=NULL,*temp1=NULL;
+    head=createLinkedList(head);
     print(head);
     cout<<endl;
     cout<<"Reverse LL BY Loop : "<<endl;
